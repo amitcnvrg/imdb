@@ -1,0 +1,6 @@
+[submodule "progress_bar"]
+	path = progress_bar
+	url = https://github.com/amitcnvrg/progress_bar
+[submodule "imdb"]
+	path = imdb
+	url = https://github.com/yardengitta/imdb
