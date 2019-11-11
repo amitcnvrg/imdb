@@ -1,4 +1,5 @@
 import os
+import time
 from operator import itemgetter    
 import numpy as np
 #import matplotlib.pyplot as plt
@@ -13,11 +14,20 @@ from keras import models, regularizers, layers, optimizers, losses, metrics
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.utils import np_utils, to_categorical
-
  
 from keras.datasets import imdb
 
-(train_data, train_labels), (test_data, test_labels) = imdb.load_data(path="imdb.npz", num_words=10000)
+if not os.path.exists('output'):
+    os.mkdir('output')
+
+f = open("output/testme.txt", 'w')
+f.write("hellllo")
+f.close()
+
+
+(train_data, train_labels), (test_data, test_labels) = imdb.load_data(
+path="imdb.npz",
+num_words=10000)
 
 print("train_data ", train_data.shape)
 print("train_labels ", train_labels.shape)
@@ -109,6 +119,4 @@ print("_"*100)
 print("Test Loss and Accuracy")
 print("results ", results)
 
-if not os.path.exists('output'):
-    os.mkdir('output')
 model.save('output/sentiment2.model.h5')
